@@ -1,0 +1,115 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>二首房</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/sync.ico' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+</head>
+<body>
+<!-- 顶部栏 -->
+<div class="tops" style="top:0;position: fixed;">
+    <div class="logo">
+        <span>相逢一醉是前缘，风雨散，飘然何处 !</span>
+        <span style="margin-left: 400px;font-size:20px;"><a href="#">首页</a></span>
+        <span style="margin-left: 50px;font-size:20px;"><a href="#">二手房</a></span>
+        <span style="margin-left: 50px;font-size:20px;"><a href="{% url 'data' %}">数据分析</a></span>
+        <!-- <span style="margin-left: 250px;font-size:16px;"><a href="#">请登录</a></span><em></em>
+        <span style="font-size:16px;"><a href="#">注册</a></span> -->
+    </div>
+</div>
+<br>
+<!-- 搜索框 -->
+<div class="container">
+    <div class="search">
+        <form class="navbar-form navbar-left" action="" method="get" role="search">
+            <div class="form-group">
+                <input style="width: 300px" type="text" class="form-control" name='kw' placeholder="区域" >
+            </div>
+            <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="cls">
+        <span>区域：</span>
+        <ul>
+            <li><a href="{% url 'index' %}?{{ qs }}&region=">全部</a></li>
+            {% for hot in hot_list1 %}
+            <li><a href="{% url 'index' %}?{{ qs }}&region={{ hot.kw }}">{{ hot.kw }}</a></li>
+            {% endfor %}
+          
+        </ul>
+    </div>
+    <div class="cls">
+        <span>居室: </span>
+        <ul>
+            <li><a href="{% url 'index' %}?{{ qs }}&housetype= ">所有</a></li>
+            {% for hot in hot_list2 %}
+            <li><a href="{% url 'index' %}?{{ qs }}&housetype={{ hot.kw}}">{{ hot.kw }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="cls">
+        <span>总价:</span>
+        <ul>
+            <li><a href="{% url 'index' %}?{{ qs }}&totalPrice=">不限</a></li>
+            {% for hot in hot_list3 %}
+            <li><a href="{% url 'index' %}?{{ qs }}&totalPrice={{ hot.kw }}">{{ hot.kw }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+</div>
+<br><br>
+<!-- 列表显示 -->
+<div class="container">
+    <table class="table table-striped active">
+
+        <tr>
+            <td class="av">房源</td>
+            <td class="av">居室</td>
+            <td class="ck">小区</td>
+            <td class="ck">区域</td>
+            <td class="ck">参考价</td>
+            <td class="ck">单价</td>
+            <td class="ck">面积</td>
+        </tr>
+
+         {% for fang in fang_list %}
+        <tr>
+            <td class="ck"><a href="{{ fang.link }}">{{ fang.title }}</a></td>
+            <td class="ck">{{ fang.housetype }}</td>
+            <td class="ck">{{ fang.community }}</td>
+            <td class="ck">{{ fang.region }}</td>
+            <td class="ck">{{ fang.totalPrice }}万</td>
+            <td class="ck">{{ fang.unitPrice }}元/平米</td>
+            <td class="ck">
+
+                   {{ fang.acreage }}平米
+
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+<br>
+<!-- 分页 -->
+{% include 'page.html' %}
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

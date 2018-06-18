@@ -1,0 +1,30 @@
+<div class="container">
+    <ul class='pagination fenye'>
+        <li>
+            <a href="?{{ qs }}&pn=1">首页</a>
+        </li>
+
+        <li id='zuojt'>
+            {% if job_list.has_previous %}
+                <a href="?{{ qs }}&pn={{ job_list.previous_page_number }}">上一页</a>
+            {% endif %}
+        </li>
+        {% for num in page_num  %}
+            {% if num == pn %}
+                <li class="active"><a href="?{{ qs }}&pn={{ num }}">第{{ num }}页</a></li>
+            {% else %}
+                <li><a href="?{{ qs }}&pn={{ num }}">第{{ num }}页</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <li id='zuojt'>
+            {% if job_list.has_next %}
+                <a href="?{{ qs }}&pn={{ job_list.next_page_number }}">下一页</a>
+            {% endif %}
+        </li>
+
+        <li>
+            <a href="?{{ qs }}&pn={{ paginator.num_pages }}">尾页</a>
+        </li>
+    </ul>
+</div>

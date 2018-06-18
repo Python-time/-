@@ -1,0 +1,97 @@
+/* 横幅 */
+.tops{
+	width: 100%;
+	height: 60px;
+	background: #52A0C6;
+}
+
+.logo{
+	margin-left:17%;
+}
+.logo span{
+	line-height: 60px;
+	margin-top:20px;
+	font-size:25px;
+	color:#fff;
+}
+.logo span a{
+	color:#fff;
+	text-decoration: none;
+}
+.logo span a:hover{
+	color:#FF9800;
+	text-decoration: none;
+}
+/*首页*/
+/*搜索框*/
+.ip{
+	float:left;
+	width: 100%;
+	height: 50px;
+}
+.bt{
+	float:left;
+}
+
+.aaa{
+	float: right;
+}
+/*列表页*/
+/* 搜索 */
+.search{
+	margin-top:50px;
+	width: 100%;
+	height: 80px;
+}
+
+/* 分类页 */
+.cls{
+	margin-top:-1px;
+	height: 50px;
+	width: 100%;
+	border: 1px solid #EBEDEF;
+}
+.cls span{
+	font-size:16px;
+	line-height: 50px;
+	margin-left: 20px;
+	color:#999;
+}
+.cls ul{
+	display: inline;
+}
+.cls li{
+	font-size:15px;
+	margin-left: 20px;
+	display: inline;
+}
+.cls li a{
+	color:#333;
+	text-decoration: none;
+}
+.cls li a:hover{
+	color:#9E1915;
+	text-decoration: none;
+}
+
+/* 列表 */
+tr{
+	font-size:15px;
+	height:50px;
+}
+.av{
+	width:300px;
+}
+.ck{
+	width:120px;
+}
+td a{
+	color:#333;
+	text-decoration: none;
+	overflow: hidden;
+}
+td a:hover{
+	color:#9E1915;
+	text-decoration: none;
+}
+
